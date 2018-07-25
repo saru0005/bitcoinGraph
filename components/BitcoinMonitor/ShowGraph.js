@@ -44,37 +44,51 @@ class Index extends React.Component {
 
 
     async fetch() {
-        const testget = this.props.prices2.SELECTED.code;
-        const getname = this.props.prices.SELECTED.code;
-        const url2 = "https://api.coindesk.com/v1/bpi/currentprice/" + testget + ".json"
-        const url3 = "https://api.coindesk.com/v1/bpi/currentprice/" + getname + ".json"
-        console.log("Link is hereeeeeeeeeeee" + url2)
-        const url = "https://api.coindesk.com/v1/bpi/currentprice.json"
-        const res = await fetch(url)
-        const json = await res.json()
-        const resse = await fetch(url2)
-        const jsonne = await resse.json()
-        const resse2 = await fetch(url3)
-        const jsonne2 = await resse2.json()
         const result = {
             key: dateFormat(new Date(), "h:MM:ss TT")
         }
+        if(this.props.prices.SELECTED){
+            const getname = this.props.prices.SELECTED.code;
+            const url3 = "https://api.coindesk.com/v1/bpi/currentprice/" + getname + ".json"
+            const resse2 = await fetch(url3)
+            const jsonne2 = await resse2.json()
+            Object.keys(jsonne2.bpi).map((item) => {
+                result[item] = jsonne2.bpi[item].rate_float
+            })
+            this.setState({
+                getname: getname
+            })
+            if(this.props.prices2.SELECTED){
+                const testget = this.props.prices2.SELECTED.code;
+                const url2 = "https://api.coindesk.com/v1/bpi/currentprice/" + testget + ".json"
+                const resse = await fetch(url2)
+                const jsonne = await resse.json()
+                Object.keys(jsonne.bpi).map((item) => {
+                    result[item] = jsonne.bpi[item].rate_float
+                })
+                this.setState({
+                    testget: testget
+                })
+            }
+        }
+      
+     
+        const url = "https://api.coindesk.com/v1/bpi/currentprice.json"
+        const res = await fetch(url)
+        const json = await res.json()
+     
+
+
         Object.keys(json.bpi).map((item) => {
             result[item] = json.bpi[item].rate_float
         })
-        Object.keys(jsonne.bpi).map((item) => {
-            result[item] = jsonne.bpi[item].rate_float
-        })
-        Object.keys(jsonne2.bpi).map((item) => {
-            result[item] = jsonne2.bpi[item].rate_float
-        })
+
+     
 
         let { data } = this.state
         data.push(result)
         this.setState({
-            data: data,
-            testget: testget,
-            getname: getname
+            data: data
         })
     }
 

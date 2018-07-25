@@ -65,7 +65,7 @@ class BitcoinMonitor extends Component {
             this.loadBitcoinPriceIndex();
             setTimeout(function () {
                 _this.handleOnRefresh();
-            }, 30000);
+            }, 5000);
         }
         if (this.state.prices2.SELECTED) {
 
@@ -92,7 +92,7 @@ class BitcoinMonitor extends Component {
             this.loadBitcoinPriceIndex2();
             setTimeout(function () {
                 _this.handleOnRefresh();
-            }, 30000);
+            }, 5000);
         }
 
 
@@ -193,16 +193,23 @@ class BitcoinMonitor extends Component {
     componentDidMount() {
         this.loadSupportedCurrencies();
         this.loadBitcoinPriceIndex();
+        this.handleOnRefresh();
     }
 
 
     render() {
-        return (
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"></link>
 
+        return (
             this.state.ready === true &&
             <div>
+                <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"></link><br />
 
-                <Display
+                <div class="w3-cell-row">
+
+                    <div class="w3-container  w3-cell">
+
+                    <Display
                     currencies={this.state.currencies}
                     prices={this.state.prices}
                     prices2={this.state.prices2}
@@ -213,17 +220,19 @@ class BitcoinMonitor extends Component {
                 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
                     crossorigin="anonymous"></link>
                 <div className=" mt-5 text-center">
-                    <button className="btn btn-lg btn-refresh" onClick={this.handleOnRefresh}>
+                    {/* <button className="btn btn-lg btn-refresh" onClick={this.handleOnRefresh}>
                         <i className="fa fa-refresh fa-lg"></i>
-                    </button>
+                    </button> */}
                 </div>
-                <div>
+                    </div>
+                    <div class="w3-container w3-cell">
                     <ShowGraph
-                    prices={this.state.prices}
-                    prices2={this.state.prices2}/>
+                        prices={this.state.prices}
+                        prices2={this.state.prices2} />
+                    </div>
                 </div>
             </div>
-        );
+        )
     }
 }
 

@@ -106,7 +106,7 @@ function (_Component) {
         this.loadBitcoinPriceIndex();
         setTimeout(function () {
           _this.handleOnRefresh();
-        }, 30000);
+        }, 5000);
       }
 
       if (this.state.prices2.SELECTED) {
@@ -132,7 +132,7 @@ function (_Component) {
         this.loadBitcoinPriceIndex2();
         setTimeout(function () {
           _this.handleOnRefresh();
-        }, 30000);
+        }, 5000);
       }
     }
   }, {
@@ -245,14 +245,47 @@ function (_Component) {
     value: function componentDidMount() {
       this.loadSupportedCurrencies();
       this.loadBitcoinPriceIndex();
+      this.handleOnRefresh();
     }
   }, {
     key: "render",
     value: function render() {
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("link", {
+        rel: "stylesheet",
+        href: "https://www.w3schools.com/w3css/4/w3.css",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 201
+        }
+      });
       return this.state.ready === true && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 203
+          lineNumber: 205
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("link", {
+        rel: "stylesheet",
+        href: "https://www.w3schools.com/w3css/4/w3.css",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 206
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 206
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        "class": "w3-cell-row",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 208
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        "class": "w3-container  w3-cell",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 210
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__Display__["a" /* Display */], {
         currencies: this.state.currencies,
@@ -262,7 +295,7 @@ function (_Component) {
         onCurrencyChanged2: this.handleOnCurrencyChanged2,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 205
+          lineNumber: 212
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("link", {
         rel: "shortcut icon",
@@ -270,7 +303,7 @@ function (_Component) {
         type: "image/x-icon",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 211
+          lineNumber: 218
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("link", {
         rel: "stylesheet",
@@ -279,7 +312,7 @@ function (_Component) {
         crossorigin: "anonymous",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 212
+          lineNumber: 219
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("link", {
         href: "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
@@ -288,40 +321,28 @@ function (_Component) {
         crossorigin: "anonymous",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 213
+          lineNumber: 220
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: " mt-5 text-center",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 215
+          lineNumber: 222
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
-        className: "btn btn-lg btn-refresh",
-        onClick: this.handleOnRefresh,
+      })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        "class": "w3-container w3-cell",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 216
-        }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", {
-        className: "fa fa-refresh fa-lg",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 217
-        }
-      }))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 220
+          lineNumber: 228
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__ShowGraph__["a" /* default */], {
         prices: this.state.prices,
         prices2: this.state.prices2,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 221
+          lineNumber: 229
         }
-      })));
+      }))));
     }
   }]);
 
@@ -960,68 +981,85 @@ function (_React$Component) {
     _asyncToGenerator(
     /*#__PURE__*/
     __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.mark(function _callee2() {
-      var testget, getname, url2, url3, url, res, json, resse, jsonne, resse2, jsonne2, result, data;
+      var result, getname, url3, resse2, jsonne2, testget, url2, resse, jsonne, url, res, json, data;
       return __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
-              testget = this.props.prices2.SELECTED.code;
-              getname = this.props.prices.SELECTED.code;
-              url2 = "https://api.coindesk.com/v1/bpi/currentprice/" + testget + ".json";
-              url3 = "https://api.coindesk.com/v1/bpi/currentprice/" + getname + ".json";
-              console.log("Link is hereeeeeeeeeeee" + url2);
-              url = "https://api.coindesk.com/v1/bpi/currentprice.json";
-              _context2.next = 8;
-              return fetch(url);
-
-            case 8:
-              res = _context2.sent;
-              _context2.next = 11;
-              return res.json();
-
-            case 11:
-              json = _context2.sent;
-              _context2.next = 14;
-              return fetch(url2);
-
-            case 14:
-              resse = _context2.sent;
-              _context2.next = 17;
-              return resse.json();
-
-            case 17:
-              jsonne = _context2.sent;
-              _context2.next = 20;
-              return fetch(url3);
-
-            case 20:
-              resse2 = _context2.sent;
-              _context2.next = 23;
-              return resse2.json();
-
-            case 23:
-              jsonne2 = _context2.sent;
               result = {
                 key: dateFormat(new Date(), "h:MM:ss TT")
               };
-              Object.keys(json.bpi).map(function (item) {
-                result[item] = json.bpi[item].rate_float;
+
+              if (!this.props.prices.SELECTED) {
+                _context2.next = 23;
+                break;
+              }
+
+              getname = this.props.prices.SELECTED.code;
+              url3 = "https://api.coindesk.com/v1/bpi/currentprice/" + getname + ".json";
+              _context2.next = 6;
+              return fetch(url3);
+
+            case 6:
+              resse2 = _context2.sent;
+              _context2.next = 9;
+              return resse2.json();
+
+            case 9:
+              jsonne2 = _context2.sent;
+              Object.keys(jsonne2.bpi).map(function (item) {
+                result[item] = jsonne2.bpi[item].rate_float;
               });
+              this.setState({
+                getname: getname
+              });
+
+              if (!this.props.prices2.SELECTED) {
+                _context2.next = 23;
+                break;
+              }
+
+              testget = this.props.prices2.SELECTED.code;
+              url2 = "https://api.coindesk.com/v1/bpi/currentprice/" + testget + ".json";
+              _context2.next = 17;
+              return fetch(url2);
+
+            case 17:
+              resse = _context2.sent;
+              _context2.next = 20;
+              return resse.json();
+
+            case 20:
+              jsonne = _context2.sent;
               Object.keys(jsonne.bpi).map(function (item) {
                 result[item] = jsonne.bpi[item].rate_float;
               });
-              Object.keys(jsonne2.bpi).map(function (item) {
-                result[item] = jsonne2.bpi[item].rate_float;
+              this.setState({
+                testget: testget
+              });
+
+            case 23:
+              url = "https://api.coindesk.com/v1/bpi/currentprice.json";
+              _context2.next = 26;
+              return fetch(url);
+
+            case 26:
+              res = _context2.sent;
+              _context2.next = 29;
+              return res.json();
+
+            case 29:
+              json = _context2.sent;
+              Object.keys(json.bpi).map(function (item) {
+                result[item] = json.bpi[item].rate_float;
               });
               data = this.state.data;
               data.push(result);
               this.setState({
-                data: data,
-                testget: testget,
-                getname: getname
+                data: data
               });
 
-            case 31:
+            case 34:
             case "end":
               return _context2.stop();
           }
@@ -1048,7 +1086,7 @@ function (_React$Component) {
       return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 95
+          lineNumber: 109
         }
       }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_recharts__["d" /* LineChart */], {
         width: 1024,
@@ -1056,13 +1094,13 @@ function (_React$Component) {
         data: Value,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 96
+          lineNumber: 110
         }
       }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_recharts__["a" /* CartesianGrid */], {
         strokeDasharray: "3 3",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 97
+          lineNumber: 111
         }
       }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_recharts__["f" /* XAxis */], {
         dataKey: "Value.key",
@@ -1072,22 +1110,22 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 98
+          lineNumber: 112
         }
       }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_recharts__["g" /* YAxis */], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 100
+          lineNumber: 114
         }
       }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_recharts__["e" /* Tooltip */], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 101
+          lineNumber: 115
         }
       }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_recharts__["b" /* Legend */], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 102
+          lineNumber: 116
         }
       }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_recharts__["c" /* Line */], {
         type: "monotone",
@@ -1098,7 +1136,7 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 103
+          lineNumber: 117
         }
       }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_recharts__["c" /* Line */], {
         type: "monotone",
@@ -1109,7 +1147,7 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 104
+          lineNumber: 118
         }
       }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_recharts__["c" /* Line */], {
         type: "monotone",
@@ -1120,7 +1158,7 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 105
+          lineNumber: 119
         }
       }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_recharts__["c" /* Line */], {
         type: "monotone",
@@ -1131,7 +1169,7 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 106
+          lineNumber: 120
         }
       }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_recharts__["c" /* Line */], {
         type: "monotone",
@@ -1142,7 +1180,7 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 107
+          lineNumber: 121
         }
       })));
     }
@@ -1154,43 +1192,43 @@ function (_React$Component) {
         href: "https://www.w3schools.com/w3css/4/w3.css",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 113
+          lineNumber: 127
         }
       });
       return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 115
+          lineNumber: 129
         }
       }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("link", {
         rel: "stylesheet",
         href: "https://www.w3schools.com/w3css/4/w3.css",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 116
+          lineNumber: 130
         }
       }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 116
+          lineNumber: 130
         }
       }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
         "class": "w3-cell-row",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 117
+          lineNumber: 131
         }
       }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
         "class": "w3-container  w3-cell",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 119
+          lineNumber: 133
         }
       }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
         "class": "w3-container w3-cell",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 123
+          lineNumber: 137
         }
       }, this.renderGrapgh())));
     }
