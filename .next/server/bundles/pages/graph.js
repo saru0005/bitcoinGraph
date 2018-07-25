@@ -84,6 +84,7 @@ module.exports =
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_CurrencyService__ = __webpack_require__("./services/CurrencyService.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__DocumentsFieldSet__ = __webpack_require__("./components/BitcoinMonitor/DocumentsFieldSet.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__DocumentInput__ = __webpack_require__("./components/BitcoinMonitor/DocumentInput.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ShowGraph__ = __webpack_require__("./components/BitcoinMonitor/ShowGraph.js");
 var _jsxFileName = "E:\\Game\\Work2018\\bitcoinGraph\\components\\BitcoinMonitor\\BitcoinMonitor.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -99,6 +100,7 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
 
 
 
@@ -319,7 +321,7 @@ function (_Component) {
       return this.state.ready === true && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 202
+          lineNumber: 203
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__Display__["a" /* Display */], {
         currencies: this.state.currencies,
@@ -329,7 +331,7 @@ function (_Component) {
         onCurrencyChanged2: this.handleOnCurrencyChanged2,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 204
+          lineNumber: 205
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("link", {
         rel: "shortcut icon",
@@ -337,7 +339,7 @@ function (_Component) {
         type: "image/x-icon",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 210
+          lineNumber: 211
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("link", {
         rel: "stylesheet",
@@ -346,7 +348,7 @@ function (_Component) {
         crossorigin: "anonymous",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 211
+          lineNumber: 212
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("link", {
         href: "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
@@ -355,28 +357,40 @@ function (_Component) {
         crossorigin: "anonymous",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 212
+          lineNumber: 213
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: " mt-5 text-center",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 222
+          lineNumber: 215
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
         className: "btn btn-lg btn-refresh",
         onClick: this.handleOnRefresh,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 223
+          lineNumber: 216
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", {
         className: "fa fa-refresh fa-lg",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 224
+          lineNumber: 217
         }
-      }))));
+      }))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 220
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__ShowGraph__["a" /* default */], {
+        prices: this.state.prices,
+        prices2: this.state.prices2,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 221
+        }
+      })));
     }
   }]);
 
@@ -410,156 +424,156 @@ var Display = function Display(props) {
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 7
+      lineNumber: 8
     }
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("table", {
     className: "table",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8
+      lineNumber: 9
     }
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("thead", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9
+      lineNumber: 10
     }
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tr", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10
+      lineNumber: 11
     }
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("th", {
     className: "text-uppercase text-center",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11
+      lineNumber: 12
     }
   }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("th", {
     className: "text-uppercase ",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12
+      lineNumber: 13
     }
   }, "Before"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("th", {
     className: "text-uppercase ",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13
+      lineNumber: 14
     }
   }, "Current"))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tbody", {
     className: "table-body",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16
+      lineNumber: 17
     }
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tr", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17
+      lineNumber: 18
     }
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18
+      lineNumber: 19
     }
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", {
     className: "fa fa-usd fa-lg",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19
+      lineNumber: 20
     }
   }, "USD")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21
+      lineNumber: 22
     }
   }, formatNumber(props.prices.USD.previousRate)), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24
+      lineNumber: 25
     }
   }, formatNumber(props.prices.USD.currentRate), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Indicator__["a" /* Indicator */], {
     currentRate: props.prices.USD.currentRate,
     previousRate: props.prices.USD.previousRate,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26
+      lineNumber: 27
     }
   }))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tr", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31
+      lineNumber: 32
     }
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32
+      lineNumber: 33
     }
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", {
     className: "fa fa-gbp fa-lg",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33
+      lineNumber: 34
     }
   }, "GBP")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35
+      lineNumber: 36
     }
   }, formatNumber(props.prices.GBP.previousRate)), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38
+      lineNumber: 39
     }
   }, formatNumber(props.prices.GBP.currentRate), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Indicator__["a" /* Indicator */], {
     currentRate: props.prices.GBP.currentRate,
     previousRate: props.prices.GBP.previousRate,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40
+      lineNumber: 41
     }
   }))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tr", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45
+      lineNumber: 46
     }
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46
+      lineNumber: 47
     }
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", {
     className: "fa fa-eur fa-lg",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47
+      lineNumber: 48
     }
   }, "EUR")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49
+      lineNumber: 50
     }
   }, formatNumber(props.prices.EUR.previousRate)), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 52
+      lineNumber: 53
     }
   }, formatNumber(props.prices.EUR.currentRate), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Indicator__["a" /* Indicator */], {
     currentRate: props.prices.EUR.currentRate,
     previousRate: props.prices.EUR.previousRate,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54
+      lineNumber: 55
     }
   }))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tr", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 60
+      lineNumber: 61
     }
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 61
+      lineNumber: 62
     }
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("select", {
     name: "currency",
@@ -568,7 +582,7 @@ var Display = function Display(props) {
     onChange: props.onCurrencyChanged,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62
+      lineNumber: 63
     }
   }, props.currencies && props.currencies.map(function (currency) {
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("option", {
@@ -576,40 +590,40 @@ var Display = function Display(props) {
       value: currency.currency,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 69
+        lineNumber: 70
       }
     }, currency.currency);
   }))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 76
+      lineNumber: 77
     }
   }, props.prices.SELECTED && formatNumber(props.prices.SELECTED.previousRate)), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 79
+      lineNumber: 80
     }
   }, props.prices.SELECTED && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 82
+      lineNumber: 83
     }
   }, formatNumber(props.prices.SELECTED.currentRate), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Indicator__["a" /* Indicator */], {
     currentRate: props.prices.SELECTED.currentRate,
     previousRate: props.prices.SELECTED.previousRate,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 84
+      lineNumber: 85
     }
   })))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tr", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 91
+      lineNumber: 92
     }
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 92
+      lineNumber: 93
     }
   }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("select", {
     name: "currency",
@@ -618,7 +632,7 @@ var Display = function Display(props) {
     onChange: props.onCurrencyChanged2,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 93
+      lineNumber: 94
     }
   }, props.currencies && props.currencies.map(function (currency) {
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("option", {
@@ -626,30 +640,30 @@ var Display = function Display(props) {
       value: currency.currency,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 100
+        lineNumber: 101
       }
     }, currency.currency);
   }))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 107
+      lineNumber: 108
     }
   }, props.prices2.SELECTED && formatNumber(props.prices2.SELECTED.previousRate)), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 110
+      lineNumber: 111
     }
   }, props.prices2.SELECTED && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 113
+      lineNumber: 114
     }
   }, formatNumber(props.prices2.SELECTED.currentRate), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Indicator__["a" /* Indicator */], {
     currentRate: props.prices2.SELECTED.currentRate,
     previousRate: props.prices2.SELECTED.previousRate,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 115
+      lineNumber: 116
     }
   })))))));
 };
@@ -889,86 +903,20 @@ Indicator.propTypes = {
 
 /***/ }),
 
-/***/ "./components/Header.js":
+/***/ "./components/BitcoinMonitor/ShowGraph.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Header; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__("prop-types");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
-var _jsxFileName = "E:\\Game\\Work2018\\bitcoinGraph\\components\\Header.js";
-
-
-
-var Header = function Header(props) {
-  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("nav", {
-    className: "header navbar navbar-dark bg-dark",
-    style: {
-      overflowX: 'hidden'
-    },
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 5
-    }
-  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-    className: "text-center mx-auto",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 6
-    }
-  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-    className: "",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 7
-    }
-  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", {
-    className: "fa fa-btc fa-3x my-auto d-inline-block",
-    style: {
-      color: '#FFC107'
-    },
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 8
-    }
-  }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-    className: "h3 ml-3 my-auto text-light d-inline-block",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 9
-    }
-  }, props.title))));
-};
-
-Header.defaultProps = {
-  title: 'App'
-};
-Header.propTypes = {
-  title: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string
-};
-
-
-/***/ }),
-
-/***/ "./pages/graph.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator__ = __webpack_require__("@babel/runtime/regenerator");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__("react");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_recharts__ = __webpack_require__("recharts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_recharts___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_recharts__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_BitcoinMonitor_BitcoinMonitor__ = __webpack_require__("./components/BitcoinMonitor/BitcoinMonitor.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_isomorphic_fetch__ = __webpack_require__("isomorphic-fetch");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_isomorphic_fetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_isomorphic_fetch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_Header__ = __webpack_require__("./components/Header.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_isomorphic_fetch__ = __webpack_require__("isomorphic-fetch");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_isomorphic_fetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_isomorphic_fetch__);
 
-var _jsxFileName = "E:\\Game\\Work2018\\bitcoinGraph\\pages\\graph.js";
+var _jsxFileName = "E:\\Game\\Work2018\\bitcoinGraph\\components\\BitcoinMonitor\\ShowGraph.js";
 
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -986,8 +934,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-
 
 
 
@@ -1084,35 +1030,68 @@ function (_React$Component) {
     _asyncToGenerator(
     /*#__PURE__*/
     __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.mark(function _callee2() {
-      var url, res, json, result, data;
+      var testget, getname, url2, url3, url, res, json, resse, jsonne, resse2, jsonne2, result, data;
       return __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
+              testget = this.props.prices2.SELECTED.code;
+              getname = this.props.prices.SELECTED.code;
+              url2 = "https://api.coindesk.com/v1/bpi/currentprice/" + testget + ".json";
+              url3 = "https://api.coindesk.com/v1/bpi/currentprice/" + getname + ".json";
+              console.log("Link is hereeeeeeeeeeee" + url2);
               url = "https://api.coindesk.com/v1/bpi/currentprice.json";
-              _context2.next = 3;
+              _context2.next = 8;
               return fetch(url);
 
-            case 3:
+            case 8:
               res = _context2.sent;
-              _context2.next = 6;
+              _context2.next = 11;
               return res.json();
 
-            case 6:
+            case 11:
               json = _context2.sent;
+              _context2.next = 14;
+              return fetch(url2);
+
+            case 14:
+              resse = _context2.sent;
+              _context2.next = 17;
+              return resse.json();
+
+            case 17:
+              jsonne = _context2.sent;
+              _context2.next = 20;
+              return fetch(url3);
+
+            case 20:
+              resse2 = _context2.sent;
+              _context2.next = 23;
+              return resse2.json();
+
+            case 23:
+              jsonne2 = _context2.sent;
               result = {
                 key: dateFormat(new Date(), "h:MM:ss TT")
               };
               Object.keys(json.bpi).map(function (item) {
                 result[item] = json.bpi[item].rate_float;
               });
+              Object.keys(jsonne.bpi).map(function (item) {
+                result[item] = jsonne.bpi[item].rate_float;
+              });
+              Object.keys(jsonne2.bpi).map(function (item) {
+                result[item] = jsonne2.bpi[item].rate_float;
+              });
               data = this.state.data;
               data.push(result);
               this.setState({
-                data: data
+                data: data,
+                testget: testget,
+                getname: getname
               });
 
-            case 12:
+            case 31:
             case "end":
               return _context2.stop();
           }
@@ -1122,8 +1101,14 @@ function (_React$Component) {
   }, {
     key: "renderGrapgh",
     value: function renderGrapgh() {
-      var data = this.state.data;
+      var _state = this.state,
+          data = _state.data,
+          testget = _state.testget,
+          getname = _state.getname;
+      var coin4 = 'Value.' + testget;
+      var coin5 = 'Value.' + getname;
       console.log("render", data);
+      console.log("มันออกมาเเล้วโว้ย" + testget);
       var Value = data.map(function (item) {
         return {
           Value: item
@@ -1133,7 +1118,7 @@ function (_React$Component) {
       return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 75
+          lineNumber: 95
         }
       }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_recharts__["LineChart"], {
         width: 1024,
@@ -1141,13 +1126,13 @@ function (_React$Component) {
         data: Value,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 76
+          lineNumber: 96
         }
       }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_recharts__["CartesianGrid"], {
         strokeDasharray: "3 3",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 77
+          lineNumber: 97
         }
       }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_recharts__["XAxis"], {
         dataKey: "Value.key",
@@ -1157,22 +1142,22 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 78
+          lineNumber: 98
         }
       }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_recharts__["YAxis"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 79
+          lineNumber: 100
         }
       }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_recharts__["Tooltip"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 80
+          lineNumber: 101
         }
       }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_recharts__["Legend"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 81
+          lineNumber: 102
         }
       }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_recharts__["Line"], {
         type: "monotone",
@@ -1183,7 +1168,7 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 82
+          lineNumber: 103
         }
       }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_recharts__["Line"], {
         type: "monotone",
@@ -1194,7 +1179,7 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 83
+          lineNumber: 104
         }
       }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_recharts__["Line"], {
         type: "monotone",
@@ -1205,7 +1190,29 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 84
+          lineNumber: 105
+        }
+      }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_recharts__["Line"], {
+        type: "monotone",
+        dataKey: coin4,
+        stroke: "#ffff00",
+        activeDot: {
+          r: 5
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 106
+        }
+      }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_recharts__["Line"], {
+        type: "monotone",
+        dataKey: coin5,
+        stroke: "#ff00ff",
+        activeDot: {
+          r: 5
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 107
         }
       })));
     }
@@ -1217,55 +1224,43 @@ function (_React$Component) {
         href: "https://www.w3schools.com/w3css/4/w3.css",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 90
+          lineNumber: 113
         }
-      }); // console.log('render', data)
-
+      });
       return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 93
+          lineNumber: 115
         }
-      }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__components_Header__["a" /* Header */], {
-        title: "Monitor",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 94
-        }
-      }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("link", {
+      }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("link", {
         rel: "stylesheet",
         href: "https://www.w3schools.com/w3css/4/w3.css",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 95
+          lineNumber: 116
         }
       }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 95
+          lineNumber: 116
         }
       }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
         "class": "w3-cell-row",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 97
+          lineNumber: 117
         }
       }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
         "class": "w3-container  w3-cell",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 99
+          lineNumber: 119
         }
-      }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_BitcoinMonitor_BitcoinMonitor__["a" /* BitcoinMonitor */], {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 101
-        }
-      })), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
+      }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
         "class": "w3-container w3-cell",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 103
+          lineNumber: 123
         }
       }, this.renderGrapgh())));
     }
@@ -1274,7 +1269,183 @@ function (_React$Component) {
   return Index;
 }(__WEBPACK_IMPORTED_MODULE_1_react___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (Index);
+/* harmony default export */ __webpack_exports__["a"] = (Index);
+
+/***/ }),
+
+/***/ "./components/Header.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Header; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__("prop-types");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
+var _jsxFileName = "E:\\Game\\Work2018\\bitcoinGraph\\components\\Header.js";
+
+
+
+var Header = function Header(props) {
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("nav", {
+    className: "header navbar navbar-dark bg-dark",
+    style: {
+      overflowX: 'hidden'
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 5
+    }
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "text-center mx-auto",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6
+    }
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7
+    }
+  }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", {
+    className: "fa fa-btc fa-3x my-auto d-inline-block",
+    style: {
+      color: '#FFC107'
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8
+    }
+  }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    className: "h3 ml-3 my-auto text-light d-inline-block",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9
+    }
+  }, props.title))));
+};
+
+Header.defaultProps = {
+  title: 'App'
+};
+Header.propTypes = {
+  title: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string
+};
+
+
+/***/ }),
+
+/***/ "./pages/graph.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_BitcoinMonitor_BitcoinMonitor__ = __webpack_require__("./components/BitcoinMonitor/BitcoinMonitor.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_isomorphic_fetch__ = __webpack_require__("isomorphic-fetch");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_isomorphic_fetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_isomorphic_fetch__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Header__ = __webpack_require__("./components/Header.js");
+var _jsxFileName = "E:\\Game\\Work2018\\bitcoinGraph\\pages\\graph.js";
+
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+var dateFormat = __webpack_require__("dateformat");
+
+var graph =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(graph, _React$Component);
+
+  function graph() {
+    _classCallCheck(this, graph);
+
+    return _possibleConstructorReturn(this, (graph.__proto__ || Object.getPrototypeOf(graph)).apply(this, arguments));
+  }
+
+  _createClass(graph, [{
+    key: "render",
+    value: function render() {
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("link", {
+        rel: "stylesheet",
+        href: "https://www.w3schools.com/w3css/4/w3.css",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 8
+        }
+      });
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 11
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_Header__["a" /* Header */], {
+        title: "Monitor",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 12
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("link", {
+        rel: "stylesheet",
+        href: "https://www.w3schools.com/w3css/4/w3.css",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 13
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 13
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        "class": "w3-cell-row",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 15
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        "class": "w3-container  w3-cell",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 17
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__components_BitcoinMonitor_BitcoinMonitor__["a" /* BitcoinMonitor */], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 19
+        }
+      })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        "class": "w3-container w3-cell",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 21
+        }
+      })));
+    }
+  }]);
+
+  return graph;
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (graph);
 
 /***/ }),
 

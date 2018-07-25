@@ -4,6 +4,7 @@ import { BitcoinService } from '../../services/BitcoinService';
 import { CurrencyService } from '../../services/CurrencyService';
 import DocumentsFieldSet from './DocumentsFieldSet';
 import DocumentInput from './DocumentInput';
+import  ShowGraph  from './ShowGraph';
 const bitcoinService = new BitcoinService();
 const currencyService = new CurrencyService();
 
@@ -211,20 +212,16 @@ class BitcoinMonitor extends Component {
                 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"></link>
                 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
                     crossorigin="anonymous"></link>
-                {/* <div>
-                    <DocumentsFieldSet />
-                    <DocumentInput
-                        currencies={this.state.currencies}
-                        prices={this.state.prices}
-                        onCurrencyChanged={this.handleOnCurrencyChanged}
-                    />
-                </div> */}
                 <div className=" mt-5 text-center">
                     <button className="btn btn-lg btn-refresh" onClick={this.handleOnRefresh}>
                         <i className="fa fa-refresh fa-lg"></i>
                     </button>
                 </div>
-
+                <div>
+                    <ShowGraph
+                    prices={this.state.prices}
+                    prices2={this.state.prices2}/>
+                </div>
             </div>
         );
     }

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Indicator } from './Indicator';
+
 const formatNumber = (number) => number.toFixed(4).toString().padEnd(11, '0');
 
 const Display = (props) => (
