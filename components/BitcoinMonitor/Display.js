@@ -88,6 +88,38 @@ const Display = (props) => (
                         }
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        <select
+                            name="currency"
+                            id="currency"
+                            className="currency form-control mx-auto"
+                            onChange={props.onCurrencyChanged2}>
+                            {
+                                props.currencies && props.currencies.map(currency => (
+                                    <option key={currency.currency} value={currency.currency}>
+                                        {currency.currency}
+                                    </option>
+                                ))
+                            }
+                        </select>
+                    </td>
+                    <td>
+                        {props.prices2.SELECTED && formatNumber(props.prices2.SELECTED.previousRate)}
+                    </td>
+                    <td>
+                        {
+                            props.prices2.SELECTED &&
+                            <div>
+                                {formatNumber(props.prices2.SELECTED.currentRate)}
+                                <Indicator
+                                    currentRate={props.prices2.SELECTED.currentRate}
+                                    previousRate={props.prices2.SELECTED.previousRate} />
+                            </div>
+                        }
+                    </td>
+                </tr>
+                
             </tbody>
         </table>
     </div>
