@@ -6,22 +6,33 @@ import {
     YAxis,
     Tooltip,
     Legend,
-    Label
 } from 'recharts'
 import 'isomorphic-fetch'
+import axios from 'axios';
+
+const BASE_URL = 'https://api.coindesk.com/v1/bpi';
 var dateFormat = require('dateformat');
+
 class Index extends React.Component {
 
+
+
+
     static async getInitialProps() {
-        const url = "https://api.coindesk.com/v1/bpi/currentprice.json"
-        const res = await fetch(url)
-        const json = await res.json()
+        //     axios.get(${BASE_URL}/currentprice.json)
+        //   .then(response => {
+        //     console.log("kkk",response.data.bpi)
+        //   });
         const result = {
             key: dateFormat(new Date(), "h:MM:ss TT")
         }
-        Object.keys(json.bpi).map((item) => {
-            result[item] = json.bpi[item].rate_float
-        })
+        axios.get(`${BASE_URL}/currentprice.json`)
+            .then(response => {
+                console.log("kkk", response.data)
+                Object.keys(response.data.bpi).map((item) => {
+                    result[item] = response.data.bpi[item].rate_float
+                })
+            })
         return { bitcoin: result }
     }
 
@@ -37,69 +48,58 @@ class Index extends React.Component {
     componentDidMount() {
         setInterval(() => {
             this.fetch()
-        }, 5000)
+        }, 3000)
     }
 
 
 
 
-    async fetch() {
+    fetch() {
         const result = {
             key: dateFormat(new Date(), "h:MM:ss TT")
         }
-        if(this.props.prices.SELECTED){
-            const getname = this.props.prices.SELECTED.code;
-            const url3 = "https://api.coindesk.com/v1/bpi/currentprice/" + getname + ".json"
-            const resse2 = await fetch(url3)
-            const jsonne2 = await resse2.json()
-            Object.keys(jsonne2.bpi).map((item) => {
-                result[item] = jsonne2.bpi[item].rate_float
-            })
-            this.setState({
-                getname: getname
-            })
-            if(this.props.prices2.SELECTED){
-                const testget = this.props.prices2.SELECTED.code;
-                const url2 = "https://api.coindesk.com/v1/bpi/currentprice/" + testget + ".json"
-                const resse = await fetch(url2)
-                const jsonne = await resse.json()
-                Object.keys(jsonne.bpi).map((item) => {
-                    result[item] = jsonne.bpi[item].rate_float
+        axios.get(`${BASE_URL}/currentprice.json`)
+            .then(response => {
+                console.log("kkk", response.data)
+                Object.keys(response.data.bpi).map((item) => {
+                    result[item] = response.data.bpi[item].rate_float
                 })
-                this.setState({
-                    testget: testget
-                })
-            }
-        }
-      
-     
-        const url = "https://api.coindesk.com/v1/bpi/currentprice.json"
-        const res = await fetch(url)
-        const json = await res.json()
-     
-
-
-        Object.keys(json.bpi).map((item) => {
-            result[item] = json.bpi[item].rate_float
+            })
+        const gettname = this.props.getnameprice
+        axios.get(`${BASE_URL}/currentprice/${gettname}.json`)
+        .then(response2 => {
+            console.log("FFFF", response2.data)
+            Object.keys(response2.data.bpi).map((item) => {
+                result[item] = response2.data.bpi[item].rate_float
+            })
+        })
+        const gettname2 = this.props.getnameprice2
+        axios.get(`${BASE_URL}/currentprice/${gettname2}.json`)
+        .then(response3 => {
+            console.log("FFFF", response3.data)
+            Object.keys(response3.data.bpi).map((item) => {
+                result[item] = response3.data.bpi[item].rate_float
+            })
         })
 
-     
-
         let { data } = this.state
+        if (data.length > 10) {
+            data.shift();
+        }
+
+
         data.push(result)
         this.setState({
             data: data
         })
+        console.log(data)
     }
 
-    renderGrapgh() {
-
-        var { data, testget, getname } = this.state
-        var coin4 = 'Value.' + testget
-        var coin5 = 'Value.' + getname
-
+    render() {
+        var { data } = this.state
         console.log("render", data)
-        console.log("มันออกมาเเล้วโว้ย" + testget)
+        const coin4 = "Value."+this.props.getnameprice
+        const coin5 = "Value."+this.props.getnameprice2
         const Value = data.map((item) => {
             return { Value: item }
         }
@@ -109,8 +109,7 @@ class Index extends React.Component {
             <div>
                 <LineChart width={1024} height={480} data={Value}>
                     <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="Value.key" padding={{ left: 30, right: 30 }} >
-                    </XAxis>
+                    <XAxis dataKey="Value.key" padding={{ left: 30, right: 30 }} />
                     <YAxis />
                     <Tooltip />
                     <Legend />
@@ -118,29 +117,10 @@ class Index extends React.Component {
                     <Line type="monotone" dataKey="Value.GBP" stroke="#82ca9d" activeDot={{ r: 5 }} />
                     <Line type="monotone" dataKey="Value.EUR" stroke="#d82d36" activeDot={{ r: 5 }} />
                     <Line type="monotone" dataKey={coin4} stroke="#ffff00" activeDot={{ r: 5 }} />
-                    <Line type="monotone" dataKey={coin5} stroke="#ff00ff" activeDot={{ r: 5 }} />
+                    <Line type="monotone" dataKey={coin5} stroke="#80ff00" activeDot={{ r: 5 }} />
                 </LineChart>
             </div>
         )
     }
-    render() {
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"></link>
-        return (
-            <div>
-                <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"></link><br />
-                <div class="w3-cell-row">
-
-                    <div class="w3-container  w3-cell">
-
-
-                    </div>
-                    <div class="w3-container w3-cell">
-                        {this.renderGrapgh()}
-                    </div>
-                </div>
-            </div>
-        )
-    }
 }
-
 export default Index

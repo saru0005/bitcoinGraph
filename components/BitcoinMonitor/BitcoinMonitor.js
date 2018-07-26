@@ -7,7 +7,7 @@ import DocumentInput from './DocumentInput';
 import  ShowGraph  from './ShowGraph';
 const bitcoinService = new BitcoinService();
 const currencyService = new CurrencyService();
-
+const bb = 3000;
 const mapToPrice = (currentPrice, previousPrice) => {
     return {
         code: currentPrice.code,
@@ -43,7 +43,8 @@ class BitcoinMonitor extends Component {
         if (this.state.prices.SELECTED) {
 
             const currency = this.state.prices.SELECTED.code;
-
+            const getnameprice = this.state.prices.SELECTED.code;
+            this.setState({getnameprice: getnameprice})
             bitcoinService
                 .getPrice(currency)
                 .then(price => {
@@ -51,12 +52,12 @@ class BitcoinMonitor extends Component {
                         this.loadBitcoinPriceIndex(price);
                         setTimeout(function () {
                             _this.handleOnRefresh();
-                        }, 5000);
+                        }, bb);
                     } else {
                         this.loadBitcoinPriceIndex();
                         setTimeout(function () {
                             _this.handleOnRefresh();
-                        }, 5000);
+                        }, bb);
                     }
                 })
                 .catch(error => console.log(error.message));
@@ -65,12 +66,13 @@ class BitcoinMonitor extends Component {
             this.loadBitcoinPriceIndex();
             setTimeout(function () {
                 _this.handleOnRefresh();
-            }, 5000);
+            }, bb);
         }
         if (this.state.prices2.SELECTED) {
 
             const currency = this.state.prices2.SELECTED.code;
-
+            const getnameprice2 = this.state.prices2.SELECTED.code;
+            this.setState({getnameprice2: getnameprice2})
             bitcoinService
                 .getPrice(currency)
                 .then(price => {
@@ -78,12 +80,12 @@ class BitcoinMonitor extends Component {
                         this.loadBitcoinPriceIndex2(price);
                         setTimeout(function () {
                             _this.handleOnRefresh();
-                        }, 5000);
+                        }, bb);
                     } else {
                         this.loadBitcoinPriceIndex2();
                         setTimeout(function () {
                             _this.handleOnRefresh();
-                        }, 5000);
+                        }, bb);
                     }
                 })
                 .catch(error => console.log(error.message));
@@ -92,7 +94,7 @@ class BitcoinMonitor extends Component {
             this.loadBitcoinPriceIndex2();
             setTimeout(function () {
                 _this.handleOnRefresh();
-            }, 5000);
+            }, bb);
         }
 
 
@@ -228,7 +230,9 @@ class BitcoinMonitor extends Component {
                     <div class="w3-container w3-cell">
                     <ShowGraph
                         prices={this.state.prices}
-                        prices2={this.state.prices2} />
+                        prices2={this.state.prices2}
+                        getnameprice={this.state.getnameprice}
+                        getnameprice2={this.state.getnameprice2} />
                     </div>
                 </div>
             </div>
